@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <title>Project: Visualization 2 - CSE 578 - Fall 2022</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="link.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script src="js/link.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+        <script language="JavaScript" type="text/javascript" script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
+        <script language="JavaScript" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="cnt">
+            <br><h1 class="text-center">Patterns in Peoples Life</h1>
+            <br><hr>
+            <div class="nav">
+                <button class="btn btn-primary" onclick="window.location.href='index.html'">Pubs and Bars</button>
+                <button class="btn btn-primary" onclick="window.location.href='innovative.html'">People</button>
+                <button class="btn btn-primary" onclick="window.location.href='bottleneck.html'">Bottlenecks</button>
+                <button class="btn btn-primary" onclick="window.location.href='poi.html'">Points Of Interest</button>
+                <button class="btn btn-primary" onclick="window.location.href='link.html'">Links</button>
+                <button class="btn btn-primary" onclick="window.location.href='apartments.html'">Apartments</button>
+            </div><hr><br>
+            <div>
+                <form class="form1">
+                    <label>Dataset Available from March 1, 2022 at 5:20am to May 24, 2023 at 10:10pm </label><br>
+                    <label for="date-from-input">Date From: </label>
+                    <input type="date" id="date-from-input" name="date-from" min="2022-03-01" max="2023-05-24" value="2022-03-01">
+                    
+                    <label for="time-from-input">Time From: </label>
+                    <input type="time" id="time-from-input" name="time-from" value="00:00:00"><t>
+
+                    <label for="date-to-input">Date To:   </label>
+                    <input type="date" id="date-to-input" name="date-to" min="2022-03-01" max="2023-05-24" value="2023-05-24">
+                    
+                    <label for="time-to-input">Time To:   </label>
+                    <input type="time" id="time-to-input" name="time-to" value="23:00:00"><t>
+                    
+                    <input type="submit" value="Submit" onclick="timeData()"><br>
+
+                    <label>Travel Purpose: </label>
+                    <label style="color: turquoise">
+                        <input type="checkbox" id="Recreation (Social Gathering)" checked>
+                        Recreation
+                      </label>
+                      <label style="color: purple">
+                        <input type="checkbox" id="Eating" checked>
+                        Eating
+                      </label>
+                      <label style="color: red">
+                        <input type="checkbox" id="Coming Back From Restaurant" checked>
+                        Coming Back From Restaurant
+                      </label>
+                      <label style="color: grey">
+                        <input type="checkbox" id="Work/Home Commute" checked>
+                        Work/Home Commute
+                      </label>
+                      <label style="color: blue">
+                        <input type="checkbox" id="Going Back to Home" checked>
+                        Going Back to Home
+                      </label><br><br>
+                  </form>
+            </div>
+            <br>
+            <hr>
+            <div id="visualizations">
+                <div class="column, visualDiv">
+                    <h3 class="text-center" >Poeple's Routine</h3>
+                    <div id="my_dataviz"></div>
+                    <div class="slidecontainer">
+                        <h3>
+                            <span id="hours"></span>
+                            <span id="minutes"></span>
+                        </h3>
+                        <input type="range" min="0" max="287" value="0" class="slider" id="myRange" onChange="updateSlider()">
+                    </div>
+                </div>
+                <div class="column, visualDiv">
+                    <h3 class="text-center">Node Link Diagram</h3>
+                    <div id ="nodeDiv">
+                        <svg id = "node-svg"></svg>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end of the container div -->
+    </body>
+</html> 

@@ -1,0 +1,102 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    align-items: top;
+    justify-content: center;
+}
+
+.visualDiv {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+}
+
+#tip{
+    position: absolute;		
+    background-color:rgba(255, 255, 255) ;
+    padding:2px;    			
+    font: 12px sans-serif;		
+    text-align: center;			    
+    width:auto;		
+    height: 35px;
+    pointer-events: none;	
+    opacity: 0;
+}
+
+#tip2{
+    position: absolute;		
+    background-color:rgba(255, 255, 255) ;
+    padding:2px;    			
+    font: 12px sans-serif;		
+    text-align: center;			    
+    width:auto;		
+    height: 35px;
+    pointer-events: none;	
+    opacity: 0;
+}
+
+.cnt{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+#visualizations{
+    display: flex;
+    flex-direction: row;
+}
+
+#filter{
+    display: flex;
+    flex-direction: row;
+}
+
+.radioLabel{
+    width:7rem;
+    height: 4rem;
+    text-align: center;
+    margin: 2px;
+    
+}
+
+.radioLabel input[type="radio"] {
+    display: none;
+}
+
+.radioLabel label {
+    display: inline-block;
+    background-color: #d1d1d1;
+    padding: 4px 11px;
+    font-family: Arial;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 2px;
+    width: 100%;
+}      
+
+.radioLabel input[type="radio"]:checked+label {
+    background-color: #76cf9f;
+}
+
+.nav{
+    margin: 2rem;
+    padding: 1rem;
+}
+
+.btn{
+    margin: 1rem;
+}
+
+svg {
+    background-color: white;
+    padding-top: 40px;
+    padding-left: 40px;
+}

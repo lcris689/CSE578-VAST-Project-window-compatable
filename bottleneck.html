@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <title>Project: Visualization 2 - CSE 578 - Fall 2022</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="bottleneck.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script src="js/bottleneck.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+        <script language="JavaScript" type="text/javascript" script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
+        <script language="JavaScript" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="cnt">
+            <br><h1 class="text-center">City Bottlenecks</h1>
+            <br><hr><div class="nav">
+                <button class="btn btn-primary" onclick="window.location.href='index.html'">Pubs and Bars</button>
+                <button class="btn btn-primary" onclick="window.location.href='innovative.html'">People</button>
+                <button class="btn btn-primary" onclick="window.location.href='bottleneck.html'">Bottlenecks</button>
+                <button class="btn btn-primary" onclick="window.location.href='poi.html'">Points Of Interest</button>
+                <button class="btn btn-primary" onclick="window.location.href='link.html'">Links</button>
+                <button class="btn btn-primary" onclick="window.location.href='apartments.html'">Apartments</button>
+            </div><br><hr>
+            <div id="visualizations">
+                <div class="vis1, visualDiv">
+                    <h3 class="text-center, vis_titles" id="bottlenecks_title">Bottlenecks</h3>
+                    <label> Date: </label>
+                    <input id="selectedDate" value="2022-03-01">
+                    <button id="myBtn">Go</button><br><br>
+                    <div id ="bottleneck_viz">
+                        <svg id = "bottleneck-svg"></svg>
+                    </div>
+                    <div class="slidecontainer">
+                        <h3>
+                            <span id="hours"></span>
+                            <span id="minutes"></span>
+                        </h3>
+                        <input type="range" min="0" max="287" value="0" class="slider" id="myRange" onChange="updateSlider()">
+                    </div>
+                </div>
+                <!-- <div class="vis2, visualDiv">
+                    <h3 class="text-center, vis_titles" id="poi_title">Points of Interest</h3>
+                    <div id="point_of_interest_viz">
+                        <svg id = "chart-svg"></svg>
+                    </div>
+                </div> -->
+            </div>
+        </div> <!-- end of the container div -->
+    </body>
+</html> 
