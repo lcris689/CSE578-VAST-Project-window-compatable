@@ -15,50 +15,58 @@ Flask
 
 ### To create the database: 
 
-The following instructions are for ubuntu system
+The following instructions are for Windows system using PowerShell
 
 STEP 1 : Install Java version >= 1.8 and set up the JAVA_HOME environment variable. 
-link: https://askubuntu.com/questions/175514/how-to-set-java-home-for-java. To check whether
-set up is done, run the command echo $JAVA_HOME on your command line. You should see the
-path.
-
-STEP 2 : Download Hadoop-2.7.7 from the link: https://archive.apache.org/dist/hadoop/common/hadoop-
-2.7.7/hadoop-2.7.7.tar.gz and extract it to your desired location. Now, you need to set up the
-HADOOP_HOME environment variable. Run the command sudo nano ~/.bashrc on the command
-line. Copy the statement export HADOOP_HOME=path to the folder hadoop-2.7.7 in the opened
-file. Save and close the file. Run the command source ~/.bashrc and check the correctness of the
-setup with echo $HADOOP_HOME command.
-
-STEP 3 : Download Spark-3.0.3 from the link: https://archive.apache.org/dist/spark/spark-3.0.3/spark-3.0.3-
-bin-hadoop2.7.tgz and extract it to your desired location. Now, you need to set up the
-SPARK_HOME environment variable. Run the command sudo nano ~/.bashrc on the command
-line. Copy the statement export SPARK_HOME=path to the folder spark-3.0.3-bin-hadoop2.7 in
-the opened file. Save and close the file. Run the command source ~/.bashrc and check the
-correctness of the setup with echo $SPARK_HOME command. If you browse the path to the
-SPARK_HOME, you should see spark-submit under the bin folder which is required for your
-testing.
-
-STEP 4 : Install Python, and Pip then install the two dependency library using 
-
+Download Java JDK and install it. Then set the environment variable in PowerShell:
+```powershell
+$env:JAVA_HOME = "C:\Program Files\Java\jdk-1.8.0_XXX"  # Replace with your Java installation path
 ```
+To check whether setup is done, run the command `echo $env:JAVA_HOME` on your command line. You should see the path.
+
+To set it permanently (recommended), use System Properties:
+- Press Win+X, select "System"
+- Click "Advanced system settings" → "Environment Variables"
+- Add JAVA_HOME with your Java installation path
+
+STEP 2 : Download Hadoop-2.7.7 from the link: https://archive.apache.org/dist/hadoop/common/hadoop-2.7.7/hadoop-2.7.7.tar.gz 
+Extract it to your desired location (e.g., `C:\hadoop-2.7.7`). Set up the HADOOP_HOME environment variable:
+```powershell
+$env:HADOOP_HOME = "C:\hadoop-2.7.7"  # Replace with your extraction path
+```
+Check the correctness with `echo $env:HADOOP_HOME` command.
+
+For permanent setup, add HADOOP_HOME to System Environment Variables (see STEP 1).
+
+STEP 3 : Download Spark-3.0.3 from the link: https://archive.apache.org/dist/spark/spark-3.0.3/spark-3.0.3-bin-hadoop2.7.tgz 
+Extract it to your desired location (e.g., `C:\spark-3.0.3-bin-hadoop2.7`). Set up the SPARK_HOME environment variable:
+```powershell
+$env:SPARK_HOME = "C:\spark-3.0.3-bin-hadoop2.7"  # Replace with your extraction path
+```
+Check the correctness with `echo $env:SPARK_HOME` command. If you browse to SPARK_HOME, you should see spark-submit.cmd under the bin folder.
+
+For permanent setup, add SPARK_HOME to System Environment Variables (see STEP 1).
+
+STEP 4 : Install Python, and Pip then install the two dependency libraries using 
+
+```powershell
 pip install Flask
 pip install apache-sedona[spark]
-
 ```
 
-STEP 5 : make a foler called data and copy the dataset from MC VAST challenge 2022,
+STEP 5 : Make a folder called data and copy the dataset from MC VAST challenge 2022. (https://vast-challenge.github.io/2022/)
 Change the Activity Logs folder to ActivityLogs and Add the travelJournal.csv to Attributes folder,
-run makeDB.py
+then run makeDB.py
 
-```
-python3 makeDB.py
+```powershell
+python makeDB.py
 ```
 
-STEP 6 : start the flask server using server.py
-```
-export FLASK_APP=server.py
+STEP 6 : Start the flask server using server.py
+```powershell
+$env:FLASK_APP = "server.py"
 flask run
 ```
 
-open the index.html using live server to see the whole system.
+Open the index.html using Live Server to see the whole system.
 
